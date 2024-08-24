@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados da API do Spotify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dados da API do Spotify: </h1>
+        <div class="list" id="pop-artists">
+            <h2>Ranking de artistas</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Cantor</th>
+                        <th>Seguidores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for artist in pop_artists %}
+                        <tr>
+                            <td>{{ artist.artist_name }}</td>
+                            <td>{{ artist.followers }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="list" id="common-genres">
+            <h2>Top 5 dos gêneros mais ouvidos</h2>
+            <ul id="common-genres-list">
+                {% for genre in common_genres %}
+                    <li>{{ genre }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
